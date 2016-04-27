@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+form div {
+  width: 80%;
+  margin: 10px;
+}
+
+form div input {
+  padding: 5px;
+}
+
+@media (min-width: 799px) {
+  .facet_sidebar {
+    width: 95%;
+  }
+}
