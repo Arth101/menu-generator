@@ -1,0 +1,70 @@
+$primary: #255556;
+
+@import "reset";
+@import "nav";
+@import "button";
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+form label {
+  display: block;
+  font-size: 1em;
+}
+
+form input {
+  padding: 5px;
+  width: 100%;
+  background:rgba(0,0,0,0);
+  border:none;
+}
+
+.menu-item {
+  font-size: 1em;
+  color: black;
+  font-weight: bold;
+}
+
+.menu-description {
+  font-size: 0.8em;
+  color: black;
+  font-weight: 300;
+  font-style: italic;
+}
+
+form button {
+  margin: 10px 0;
+}
+
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    background-color: rgba(0,0,0,0);
+    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid $primary;
+    padding: 10px 20px;
+    color: $primary;
+    cursor: pointer;
+    -webkit-transition: All 0.2s ease;
+    -moz-transition: All 0.2s ease;
+    -o-transition: All 0.2s ease;
+    -ms-transition: All 0.2s ease;
+    transition: All 0.2s ease;
+}
+
+button:hover {
+}
+
+
+@media (min-width: 799px) {
+  .facet_sidebar {
+    width: 95%;
+  }
+}
+
+@import 'grid';

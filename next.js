@@ -5,8 +5,8 @@ window.onload = function() {
   third = getQueryVariable("third");
   var viewModel = parseQuery(location.search);
   replaceText(viewModel.first);
-  replaceText(second);
-  replaceText(third);
+  replaceText(viewModel.second);
+  replaceText(viewModel.third);
   console.log(viewModel);
 };
 
