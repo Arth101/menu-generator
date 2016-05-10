@@ -3,10 +3,11 @@ window.onload = function() {
   first = getQueryVariable("first");
   second = getQueryVariable("second");
   third = getQueryVariable("third");
-  console.log(first);
-  replaceText(first);
+  var viewModel = parseQuery(location.search);
+  replaceText(viewModel.first);
   replaceText(second);
   replaceText(third);
+  console.log(viewModel);
 };
 
 function getQueryVariable(variable){
@@ -16,8 +17,18 @@ function getQueryVariable(variable){
            var pair = vars[i].split("=");
            if(pair[0] == variable){return pair[1];}
    }
-   return(false);
 }
+
+function parseQuery(queryString) {
+            var viewModel = {};
+            var queries = queryString.substring(1).split("&").forEach(function(part) {
+                part = part.replace(/\+/g, " ");
+                if(!part.indexOf("=")) return viewModel[decodeURIComponent(part)] = true;
+                var splitPart = part.split("=");
+                return viewModel[decodeURIComponent(splitPart[0])] = decodeURIComponent(splitPart[1]);
+            });
+            return viewModel;
+        }
 
 function replaceText(variable){
   var para = document.createElement("p");
