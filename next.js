@@ -23,6 +23,6 @@ function replaceText(variable){
   var para = document.createElement("p");
   var node = document.createTextNode(variable);
   para.appendChild(node);
-  var element = document.getElementById("div1");
+  var element = document.querySelector("#div1");
   element.appendChild(para);
 }
