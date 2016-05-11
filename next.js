@@ -1,12 +1,10 @@
 window.onload = function() {
   console.log("test");
-  first = getQueryVariable("first");
-  second = getQueryVariable("second");
-  third = getQueryVariable("third");
   var viewModel = parseQuery(location.search);
-  replaceText(viewModel.first);
-  replaceText(viewModel.second);
-  replaceText(viewModel.third);
+  buildMenu(viewModel, document.body);
+  // replaceText(viewModel.name);
+  // replaceText(viewModel.description);
+  // replaceText(viewModel.price);
   console.log(viewModel);
 };
 
@@ -30,10 +28,14 @@ function parseQuery(queryString) {
             return viewModel;
         }
 
-function replaceText(variable){
-  var para = document.createElement("p");
+function replaceText(variable, type){
+  var div = document.querySelector(".menu-item");
   var node = document.createTextNode(variable);
-  para.appendChild(node);
-  var element = document.querySelector("#div1");
-  element.appendChild(para);
+  div.appendChild(node);
+}
+
+function buildMenu(viewModel, container){
+  document.querySelector(".menu-item").innerHTML = viewModel.name;
+  document.querySelector(".menu-description").innerHTML = viewModel.description;
+  document.querySelector(".menu-price").innerHTML = viewModel.price + " kr.";
 }
