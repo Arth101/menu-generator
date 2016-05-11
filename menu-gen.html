@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css'>
+    <!--Import CSS-->
+    <link type="text/css" rel="stylesheet" href="styles/css/style.css" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>menu-gen</title>
+    <meta charset="UTF-8">
+  </head>
+
+  <body>
+    <nav>
+      <div class="container">
+        <span class="logo">Menu Generator</span>
+      </div>
+    </nav>
+    <div class="container">
+      <form action="next.html" method="GET">
+        <div class="row">
+          <div class="col">
+            <input class="menu-brand" type="text" placeholder="Storename" name="storename" />
+
+          </div>
+          <div class="col margin-bottom">
+            <input type="radio" name="storenameAlign" value="left"> Left align <input type="radio" name="storenameAlign" value="center"> Center
+          </div>
+            <div class="col l2">
+              <div class="col">
+                <input class="menu-item" type="text" placeholder="fx Ribeye steak" name="name" />
+              </div>
+              <div class="col">
+                <input class="menu-description" type="text" placeholder="fx Classic Ribeye steak served with fries and salad" name="description" />
+              </div>
+            </div>
+
+            <div class="col l2">
+              <input class="menu-item" type="number" placeholder="fx 179.- DKK" name="price" />
+            </div>
+            <div class="col">
+              <button type="submit" value="submit">submit</button>
+            </div>
+
+      </div>
+    </form>
+
+    </div>
+  </body>
+</html>

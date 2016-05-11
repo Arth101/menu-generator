@@ -52,46 +52,13 @@ button::-moz-focus-inner {
   -ms-user-select: none; }
 
 nav {
-  background: #255556;
+  background: rgba(37, 85, 86, 0.85);
   color: white;
   padding: 10px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  border-bottom: 1px solid #255556; }
   nav .logo {
-    font-size: 1.5em; }
-
-[role="button"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box; }
-
-/* Reset `button` and button-style `input` default styles */
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button {
-  background: none;
-  border: 0;
-  color: inherit;
-  /* cursor: default; */
-  font: inherit;
-  line-height: normal;
-  overflow: visible;
-  padding: 0;
-  -webkit-appearance: button;
-  /* for input */
-  -webkit-user-select: none;
-  /* for button */
-  -moz-user-select: none;
-  -ms-user-select: none; }
-
-input::-moz-focus-inner,
-button::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
+    font-size: 1.2em; }
 
 /* Make `a` like a button */
 [role="button"] {
@@ -105,10 +72,104 @@ button::-moz-focus-inner {
   -moz-user-select: none;
   -ms-user-select: none; }
 
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+a.btn,
+button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid black;
+  border: 1px solid rgba(37, 85, 86, 0.85);
+  padding: 10px 20px;
+  color: rgba(37, 85, 86, 0.85);
+  cursor: pointer;
+  -webkit-transition: All 0.2s ease;
+  -moz-transition: All 0.2s ease;
+  -o-transition: All 0.2s ease;
+  -ms-transition: All 0.2s ease;
+  transition: All 0.2s ease; }
+
+[role="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+a.btn:hover,
+button:hover {
+  background-color: #F0F1F2; }
+
+.profile-body {
+  background-image: url("../../assets/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.profile-container {
+  margin: 0 auto;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -moz-perspective: 1000px;
+  -webkit-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+  min-height: 100%;
+  min-height: calc(100vh - 64px); }
+
+.profile {
+  width: 500px;
+  background: white;
+  padding: 3em;
+  border-radius: 4px; }
+  .profile h1 {
+    font-weight: 100;
+    font-size: 2.5em;
+    margin: 0; }
+  .profile h2 {
+    font-weight: 200;
+    font-size: 1.2em;
+    margin: 0;
+    margin-bottom: 15px; }
+  .profile .services {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.71); }
+
+.center {
+  text-align: center; }
+
+.margin-bottom {
+  margin-bottom: 10px; }
+
+form {
+  color: rgba(0, 0, 0, 0.71); }
 
 form label {
   display: block;
@@ -116,41 +177,24 @@ form label {
 
 form input {
   padding: 5px;
-  width: 100%;
   background: transparent;
   border: none; }
 
+.menu-brand {
+  font-size: 1.7em; }
+
 .menu-item {
   font-size: 1em;
-  color: black;
   font-weight: bold;
   text-transform: capitalize; }
 
 .menu-description {
   font-size: 0.8em;
-  color: black;
   font-weight: 300;
   font-style: italic; }
 
 form button {
   margin: 10px 0; }
-
-[role="button"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button {
-  background-color: transparent;
-  border: 1px solid black;
-  border: 1px solid #255556;
-  padding: 10px 20px;
-  color: #255556;
-  cursor: pointer;
-  -webkit-transition: All 0.2s ease;
-  -moz-transition: All 0.2s ease;
-  -o-transition: All 0.2s ease;
-  -ms-transition: All 0.2s ease;
-  transition: All 0.2s ease; }
 
 @media (min-width: 799px) {
   .facet_sidebar {

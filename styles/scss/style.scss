@@ -1,13 +1,30 @@
 $primary: #255556;
+$primary: rgba(37, 85, 86, 0.85);
+$primary-dark: rgba(37, 85, 86, 1);
+$font-color: rgba(0,0,0,0.71);
 
 @import "reset";
 @import "nav";
 @import "button";
+@import "profile";
 
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  color: $font-color;
+}
+
+.center {
+  text-align: center;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+form {
+  color: $font-color;
 }
 
 form label {
@@ -17,48 +34,28 @@ form label {
 
 form input {
   padding: 5px;
-  width: 100%;
   background:rgba(0,0,0,0);
   border:none;
 }
 
+.menu-brand {
+  font-size: 1.7em;
+}
+
 .menu-item {
   font-size: 1em;
-  color: black;
   font-weight: bold;
   text-transform: capitalize;
 }
 
 .menu-description {
   font-size: 0.8em;
-  color: black;
   font-weight: 300;
   font-style: italic;
 }
 
 form button {
   margin: 10px 0;
-}
-
-[role="button"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button {
-    background-color: rgba(0,0,0,0);
-    border: 1px solid rgb(0, 0, 0);
-    border: 1px solid $primary;
-    padding: 10px 20px;
-    color: $primary;
-    cursor: pointer;
-    -webkit-transition: All 0.2s ease;
-    -moz-transition: All 0.2s ease;
-    -o-transition: All 0.2s ease;
-    -ms-transition: All 0.2s ease;
-    transition: All 0.2s ease;
-}
-
-button:hover {
 }
 
 

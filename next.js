@@ -35,7 +35,17 @@ function replaceText(variable, type){
 }
 
 function buildMenu(viewModel, container){
+  document.querySelector(".menu-brand").innerHTML = viewModel.storename;
+  if(viewModel.storenameAlign == "center"){
+    console.log("plz work");
+    document.querySelector(".menu-brand").className += " " + "center";
+  }
   document.querySelector(".menu-item").innerHTML = viewModel.name;
   document.querySelector(".menu-description").innerHTML = viewModel.description;
-  document.querySelector(".menu-price").innerHTML = viewModel.price + " kr.";
+  if(viewModel.price == ""){
+    document.querySelector(".menu-price").innerHTML = "gratis";
+  }else{
+    document.querySelector(".menu-price").innerHTML = viewModel.price + " kr.";
+  }
+
 }
