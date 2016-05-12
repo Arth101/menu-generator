@@ -172,9 +172,7 @@ button:hover {
   -moz-flex-direction: column;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 100%;
-  min-height: calc(100vh - 64px); }
+  flex-direction: column; }
 
 .profile {
   width: 500px;
@@ -207,11 +205,23 @@ button:hover {
   animation: fadeIn .5s ease-in 1 forwards;
   opacity: 0; }
 
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #F0F1F2;
+  font-size: 0.8em; }
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.71); }
+  color: rgba(0, 0, 0, 0.71);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+main {
+  flex: 1 0 auto; }
 
 .menu-container {
   padding: 0 100px; }
