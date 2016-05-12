@@ -3,6 +3,7 @@ $primary: rgba(37, 85, 86, 0.85);
 $primary-dark: rgba(37, 85, 86, 1);
 $font-color: rgba(0,0,0,0.71);
 
+@import 'grid';
 @import "reset";
 @import "nav";
 @import "button";
@@ -15,8 +16,16 @@ body {
   color: $font-color;
 }
 
+.menu-container {
+  padding: 0 100px;
+}
+
 .center {
   text-align: center;
+}
+
+.right {
+  text-align: right;
 }
 
 .margin-bottom {
@@ -36,6 +45,11 @@ form input {
   padding: 5px;
   background:rgba(0,0,0,0);
   border:none;
+  width: 100%;
+}
+
+form input[type="radio"] {
+  width: inherit;
 }
 
 .menu-brand {
@@ -54,6 +68,10 @@ form input {
   font-style: italic;
 }
 
+.menu-price {
+  text-align: right;
+}
+
 form button {
   margin: 10px 0;
 }
@@ -64,5 +82,3 @@ form button {
     width: 95%;
   }
 }
-
-@import 'grid';

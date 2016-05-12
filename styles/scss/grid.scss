@@ -24,6 +24,11 @@
   margin-right: -.5rem;
   margin-left: -.5rem;
 
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .l2 {
     -webkit-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
