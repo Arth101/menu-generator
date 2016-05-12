@@ -8,6 +8,7 @@ $font-color: rgba(0,0,0,0.71);
 @import "nav";
 @import "button";
 @import "profile";
+@import "fadeIn";
 
 body {
   margin: 0;
@@ -75,7 +76,6 @@ form input[type="radio"] {
 form button {
   margin: 10px 0;
 }
-
 
 @media (min-width: 799px) {
   .facet_sidebar {
