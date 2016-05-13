@@ -6,6 +6,7 @@ window.onload = function() {
   // replaceText(viewModel.description);
   // replaceText(viewModel.price);
   console.log(viewModel);
+  console.log(JSON.stringify(viewModel));
 };
 
 function getQueryVariable(variable){

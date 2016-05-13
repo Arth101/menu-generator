@@ -61,10 +61,22 @@
         document.querySelector("#newInput").removeEventListener("focus", createNewNodes);
         var inputs = document.querySelector(".new");
         var cln = inputs.cloneNode(true);
+        console.log(cln);
+        var clonedInputs = document.getElementsByTagName('input');
+        console.log(e);
+
         document.querySelector(".new").className = document.querySelector(".new").className.replace( /(?:^|\s)new(?!\S)/g , '' )
         document.querySelector(".menu-items").appendChild(cln);
         document.querySelector("#newInput").removeAttribute("id");
         document.querySelector("#newInput").addEventListener("focus", createNewNodes);
+
+        var elements = document.querySelectorAll(".new input");
+        console.log("long:", elements.length);
+        for (var i = 0, element; element = elements[i++];) {
+          var e = document.querySelectorAll("input").length + i;
+          element.setAttribute("name", "horse" + e);
+          console.log("it's an empty textfield");
+        }
       }
     </script>
   </body>
