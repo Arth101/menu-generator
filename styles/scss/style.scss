@@ -55,6 +55,7 @@ form input {
   background:rgba(0,0,0,0);
   border:none;
   width: 100%;
+  box-sizing: border-box;
 }
 
 form input[type="radio"] {
@@ -65,7 +66,18 @@ form input[type="radio"] {
   font-size: 1.7em;
 }
 
-.menu-item, .item-name {
+.menu-item {
+  margin-bottom: 10px;
+
+  div {
+    width: 70%;
+  }
+  div+div {
+    width: 30%;
+  }
+}
+
+.item-name, .item-price {
   font-size: 1em;
   font-weight: bold;
   text-transform: capitalize;

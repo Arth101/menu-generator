@@ -35,8 +35,6 @@
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  padding-right: .5rem;
-  padding-left: .5rem;
   -webkit-flex-basis: 100%;
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
@@ -244,7 +242,8 @@ form input {
   padding: 5px;
   background: transparent;
   border: none;
-  width: 100%; }
+  width: 100%;
+  box-sizing: border-box; }
 
 form input[type="radio"] {
   width: inherit; }
@@ -253,6 +252,13 @@ form input[type="radio"] {
   font-size: 1.7em; }
 
 .menu-item {
+  margin-bottom: 10px; }
+  .menu-item div {
+    width: 70%; }
+  .menu-item div + div {
+    width: 30%; }
+
+.item-name, .item-price {
   font-size: 1em;
   font-weight: bold;
   text-transform: capitalize; }
