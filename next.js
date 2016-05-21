@@ -39,12 +39,12 @@ function buildMenu(viewModel, container){
     document.querySelector(".menu-brand").className += " " + "center";
   };
 
-  viewModel.menuItems.forEach(function(entry){
-    console.log("menuITems!",entry.itemName);
-    var htmlMenuItem = '<div class="col l2"><div class="col"><span class="menu-item">' + entry.itemName + '</span></div><div class="col"><span class="menu-description">' + entry.itemDescription + '</span></div></div>';
+  viewModel.menuItems.forEach(function(item){
+    console.log("menuITems!",item.itemName);
+    var htmlMenuItem = '<div class="col l2"><div class="col"><span class="menu-item">' + item.itemName + '</span></div><div class="col"><span class="menu-description">' + item.itemDescription + '</span></div></div>';
     var results = document.querySelector('.row');
     results.innerHTML += htmlMenuItem;
-  },this);
+  });
 
   document.querySelector(".menu-item").innerHTML = viewModel.name;
   document.querySelector(".menu-description").innerHTML = viewModel.description;
