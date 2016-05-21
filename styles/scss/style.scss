@@ -85,6 +85,10 @@ form button {
   margin: 10px 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 @media (min-width: 799px) {
   .facet_sidebar {
     width: 95%;

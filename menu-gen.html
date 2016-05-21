@@ -47,7 +47,7 @@
 
       </div>
     </form>
-    <form id="hiddenform" action="next.html" method="GET">
+    <form class="hidden" id="hiddenform" action="next.html" method="GET">
       <input id="hidden" name="viewModel" value="plz" />
     </form>
     </div>
@@ -87,6 +87,10 @@
                 e.preventDefault();
                 console.log("prevented!");
                 var viewModel = {};
+                var menuItems  = [];
+
+                var menuBrand = document.querySelector(".menu-brand").value;
+                viewModel["storename"] = menuBrand;
 
                 var inputs = document.querySelectorAll(".menu-item");
                 Array.prototype.forEach.call(inputs, function(input) {
@@ -94,12 +98,18 @@
                   var itemName = input.querySelector(".item-name").value;
                   var itemDescription = input.querySelector(".item-description").value;
                   var itemPrice = input.querySelector(".item-price").value;
+                  obj["itemName"] = itemName;
+                  obj["itemDescription"] = itemDescription;
+                  obj["itemPrice"] = itemPrice;
+                  menuItems.push(obj);
+                  console.log("works");
                 });
 
-                viewModel["menuItems"] = "heehhe";
-                console.log(viewModel);
+                viewModel["menuItems"] = menuItems;
+                console.log(JSON.stringify(viewModel));
                 document.querySelector("#hidden").value = JSON.stringify(viewModel);
                 document.querySelector("#hiddenform").submit();
+
                 // location.pathname += "/../next.html";
                 // location.search = "?thisthing=" + JSON.stringify(viewModel);
                 return false;

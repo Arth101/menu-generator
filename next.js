@@ -1,10 +1,7 @@
 window.onload = function() {
-  console.log("test");
   var viewModel = JSON.parse(parseQuery(location.search).viewModel);
   buildMenu(viewModel, document.body);
-  // replaceText(viewModel.name);
-  // replaceText(viewModel.description);
-  // replaceText(viewModel.price);
+  console.log("viewModel:storename = ",viewModel.storename);
   console.log(JSON.stringify(viewModel));
   console.log(viewModel);
 };
@@ -40,13 +37,21 @@ function buildMenu(viewModel, container){
   if(viewModel.storenameAlign == "center"){
     console.log("plz work");
     document.querySelector(".menu-brand").className += " " + "center";
-  }
+  };
+
+  viewModel.menuItems.forEach(function(entry){
+    console.log("menuITems!",entry.itemName);
+    var htmlMenuItem = '<div class="col l2"><div class="col"><span class="menu-item">' + entry.itemName + '</span></div><div class="col"><span class="menu-description">' + entry.itemDescription + '</span></div></div>';
+    var results = document.querySelector('.row');
+    results.innerHTML += htmlMenuItem;
+  },this);
+
   document.querySelector(".menu-item").innerHTML = viewModel.name;
   document.querySelector(".menu-description").innerHTML = viewModel.description;
   if(viewModel.price == ""){
     document.querySelector(".menu-price").innerHTML = "gratis";
   }else{
     document.querySelector(".menu-price").innerHTML = viewModel.price + " kr.";
-  }
+  };
 
 }
