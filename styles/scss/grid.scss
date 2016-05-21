@@ -1,6 +1,10 @@
 .container {
   width: 800px;
   margin: 0 auto;
+
+  @media (max-width: 850px) {
+    width: 90%;
+  }
 }
 
 .row {
@@ -21,13 +25,6 @@
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -.5rem;
-  margin-left: -.5rem;
-
-  .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
 
   .l2 {
     -webkit-flex-basis: 50%;

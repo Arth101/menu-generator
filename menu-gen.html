@@ -42,7 +42,7 @@
           <div
 
             <div class="col">
-              <button type="submit" value="submit">submit</button>
+              <button class="submit-btn" type="submit" value="submit">submit</button>
             </div>
 
       </div>
@@ -65,7 +65,7 @@
         var clonedInputs = document.getElementsByTagName('input');
         console.log(e);
 
-        document.querySelector(".new").className = document.querySelector(".new").className.replace( /(?:^|\s)new(?!\S)/g , '' )
+        document.querySelector(".new").className = document.querySelector(".new").className.replace( /(?:^|\s)new(?!\S)/g , '' );
         document.querySelector(".menu-items").appendChild(cln);
         document.querySelector("#newInput").removeAttribute("id");
         document.querySelector("#newInput").addEventListener("focus", createNewNodes);
@@ -78,6 +78,12 @@
           console.log("it's an empty textfield");
         }
       }
+
+      document.querySelector(".submit-btn").addEventListener("click", function(e) {
+                e.preventDefault();
+                console.log("prevented!");
+                return false;
+            });
     </script>
   </body>
 </html>
