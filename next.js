@@ -1,12 +1,12 @@
 window.onload = function() {
   console.log("test");
-  var viewModel = parseQuery(location.search);
+  var viewModel = JSON.parse(parseQuery(location.search).viewModel);
   buildMenu(viewModel, document.body);
   // replaceText(viewModel.name);
   // replaceText(viewModel.description);
   // replaceText(viewModel.price);
-  console.log(viewModel);
   console.log(JSON.stringify(viewModel));
+  console.log(viewModel);
 };
 
 function getQueryVariable(variable){
