@@ -103,7 +103,7 @@ nav {
   color: white;
   padding: 10px;
   margin-bottom: 20px;
-  border-bottom: 1px solid #255556; }
+  border-bottom: 1px solid rgba(29, 67, 68, 0.85); }
   nav .logo {
     font-size: 1.2em; }
   nav a {
@@ -197,7 +197,7 @@ button:hover {
 
 .generated {
   width: 100%; }
-  .generated > .menu-item {
+  .generated .menu-item {
     -ms-align-items: baseline;
     align-items: baseline;
     -ms-display: flex;
@@ -247,6 +247,14 @@ footer {
   padding: 10px;
   background: #F0F1F2;
   font-size: 0.8em; }
+
+.alert {
+  position: absolute;
+  right: 20px;
+  top: 50px;
+  background-color: rgba(29, 67, 68, 0.85);
+  color: white;
+  padding: 20px; }
 
 body {
   margin: 0;

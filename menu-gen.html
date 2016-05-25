@@ -25,7 +25,7 @@
             <input class="menu-brand" type="text" placeholder="Storename" name="storename" />
           </div>
           <div class="col margin-bottom">
-            <input type="radio" name="storenameAlign" value="left" checked> Left align <input type="radio" name="storenameAlign" value="center"> Center
+            <input class="menu-align" type="radio" name="storenameAlign" value="left" checked> Left align <input type="radio" name="storenameAlign" value="center"> Center
           </div>
           <div class="col"><h3>Menu:</h3></div>
           <div class="menu-items">
@@ -91,11 +91,16 @@
 
                 var menuBrand = document.querySelector(".menu-brand").value;
                 viewModel["storename"] = menuBrand;
+                var menuAlign = document.querySelector('input[name="storenameAlign"]:checked').value;
+                viewModel["storenameAlign"] = menuAlign;
 
                 var inputs = document.querySelectorAll(".menu-item");
                 Array.prototype.forEach.call(inputs, function(input) {
                   var obj = {};
                   var itemName = input.querySelector(".item-name").value;
+                  if(itemName == ""){
+                    return;
+                  }
                   var itemDescription = input.querySelector(".item-description").value;
                   var itemPrice = input.querySelector(".item-price").value;
                   obj["name"] = itemName;
@@ -104,7 +109,12 @@
                   menuItems.push(obj);
                   console.log("works");
                 });
-
+                if(menuItems.length == 0){
+                  console.log("please write some shit");
+                  var alert = '<div class="alert">Please fill in something</div>';
+                  document.body.innerHTML += alert;
+                  return false;
+                };
                 viewModel["menuItems"] = menuItems;
                 console.log(JSON.stringify(viewModel));
                 document.querySelector("#hidden").value = JSON.stringify(viewModel);
