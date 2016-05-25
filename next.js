@@ -40,33 +40,30 @@ function buildMenu(viewModel, container){
   };
 
   viewModel.menuItems.forEach(function(item){
+
+    if(item.name == ""){
+      return;
+    }
+
     if(item.price == ""){
       var price = "Free";
     } else {
       var price = item.price + " kr";
     }
+
     console.log("menuITems!",item.itemName);
-    var htmlMenuItem = '<div class="menu-items generated">\
-                          <div class="menu-item row">\
-                            <div>\
-                              <p class="item-name">' + item.name + '</p>\
-                              <p class="item-description">' + item.description + '</p>\
-                            </div>\
-                            <div>\
-                              <p class="item-price">' + price + '</p>\
-                            </div>\
-                          </div>\
-                        </div>';
+    var htmlMenuItem = [
+      '<div class="menu-items generated"><div class="menu-item"><span class="item-name">',
+      item.name,
+      '</span><span class="item-price">',
+      price,
+      '</span><p class="item-description">',
+      item.description,
+      '</p></div></div>'
+    ].join("");
+
     var results = document.querySelector('.row');
     results.innerHTML += htmlMenuItem;
   });
-
-  // document.querySelector(".menu-item").innerHTML = viewModel.name;
-  // document.querySelector(".menu-description").innerHTML = viewModel.description;
-  // if(viewModel.price == ""){
-  //   document.querySelector(".menu-price").innerHTML = "gratis";
-  // }else{
-  //   document.querySelector(".menu-price").innerHTML = viewModel.price + " kr.";
-  // };
 
 }

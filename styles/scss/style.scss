@@ -74,12 +74,12 @@ form input[type="radio"] {
 .menu-item {
   margin-bottom: 10px;
 
-  div {
+  .container-name {
     width: 70%;
     padding-right: 20px;
     box-sizing: border-box;
   }
-  div+div {
+  .container-price {
     width: 30%;
   }
 }
