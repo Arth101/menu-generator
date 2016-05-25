@@ -51,6 +51,7 @@
       <input id="hidden" name="viewModel" value="plz" />
     </form>
     </div>
+    <div class="alertContainer"></div>
   </main>
   <footer>
     © 2016 Anders Enghøj, All rights reserved.
@@ -112,16 +113,13 @@
                 if(menuItems.length == 0){
                   console.log("please write some shit");
                   var alert = '<div class="alert">Please fill in something</div>';
-                  document.body.innerHTML += alert;
-                  return false;
-                };
+                  document.querySelector(".alertContainer").innerHTML += alert;
+                  return true;
+                }
                 viewModel["menuItems"] = menuItems;
                 console.log(JSON.stringify(viewModel));
                 document.querySelector("#hidden").value = JSON.stringify(viewModel);
                 document.querySelector("#hiddenform").submit();
-
-                // location.pathname += "/../next.html";
-                // location.search = "?thisthing=" + JSON.stringify(viewModel);
                 return false;
             });
     </script>
