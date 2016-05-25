@@ -190,6 +190,15 @@ button:hover {
     justify-content: space-between;
     align-items: center; }
 
+.generated .menu-item {
+  align-items: baseline; }
+.generated .item-name {
+  margin: 0;
+  margin-bottom: 5px; }
+.generated .item-description {
+  font-style: italic;
+  margin: 0; }
+
 @-webkit-keyframes fadeIn {
   to {
     opacity: 1; } }
@@ -251,10 +260,15 @@ form input[type="radio"] {
 .menu-brand {
   font-size: 1.7em; }
 
+.menu-items {
+  width: 100%; }
+
 .menu-item {
   margin-bottom: 10px; }
   .menu-item div {
-    width: 70%; }
+    width: 70%;
+    padding-right: 20px;
+    box-sizing: border-box; }
   .menu-item div + div {
     width: 30%; }
 

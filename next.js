@@ -40,18 +40,33 @@ function buildMenu(viewModel, container){
   };
 
   viewModel.menuItems.forEach(function(item){
+    if(item.price == ""){
+      var price = "Free";
+    } else {
+      var price = item.price + " kr";
+    }
     console.log("menuITems!",item.itemName);
-    var htmlMenuItem = '<div class="col l2"><div class="col"><span class="menu-item">' + item.itemName + '</span></div><div class="col"><span class="menu-description">' + item.itemDescription + '</span></div></div>';
+    var htmlMenuItem = '<div class="menu-items generated">\
+                          <div class="menu-item row">\
+                            <div>\
+                              <p class="item-name">' + item.name + '</p>\
+                              <p class="item-description">' + item.description + '</p>\
+                            </div>\
+                            <div>\
+                              <p class="item-price">' + price + '</p>\
+                            </div>\
+                          </div>\
+                        </div>';
     var results = document.querySelector('.row');
     results.innerHTML += htmlMenuItem;
   });
 
-  document.querySelector(".menu-item").innerHTML = viewModel.name;
-  document.querySelector(".menu-description").innerHTML = viewModel.description;
-  if(viewModel.price == ""){
-    document.querySelector(".menu-price").innerHTML = "gratis";
-  }else{
-    document.querySelector(".menu-price").innerHTML = viewModel.price + " kr.";
-  };
+  // document.querySelector(".menu-item").innerHTML = viewModel.name;
+  // document.querySelector(".menu-description").innerHTML = viewModel.description;
+  // if(viewModel.price == ""){
+  //   document.querySelector(".menu-price").innerHTML = "gratis";
+  // }else{
+  //   document.querySelector(".menu-price").innerHTML = viewModel.price + " kr.";
+  // };
 
 }

@@ -8,6 +8,7 @@ $font-color: rgba(0,0,0,0.71);
 @import "nav";
 @import "button";
 @import "profile";
+@import 'generated';
 @import "fadeIn";
 @import "footer";
 
@@ -66,11 +67,17 @@ form input[type="radio"] {
   font-size: 1.7em;
 }
 
+.menu-items {
+  width: 100%;
+}
+
 .menu-item {
   margin-bottom: 10px;
 
   div {
     width: 70%;
+    padding-right: 20px;
+    box-sizing: border-box;
   }
   div+div {
     width: 30%;
