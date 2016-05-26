@@ -24,9 +24,25 @@
         <div class="col">
           <h2 class="menu-brand">{{ storename }}</h2>
         </div>
+
+        {{#menuItems}}
+          <div class="menu-items generated">
+            <div class="menu-item">
+              <span class="item-name">
+                {{name}}
+              </span>
+              <span class="item-price">
+                {{^price}} Free {{/price}}
+                {{#price}}{{price}} DKK {{/price}}
+              </span>
+              <p class="item-description">
+                {{description}}
+              </p>
+            </div>
+          </div>
+        {{/menuItems}}
+
       </div>
     </div>
-
-    <script src="/js/next.js"></script>
   </body>
 </html>

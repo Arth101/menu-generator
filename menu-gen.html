@@ -15,7 +15,7 @@
   <body>
     <main>
     <nav>
-      <a href="index.html"><span class="logo">BRAND4U</span></a>
+      <a href="/"><span class="logo">BRAND4U</span></a>
     </nav>
     <div class="container">
       <form action="next.html" method="GET">
@@ -85,43 +85,46 @@
       }
 
       document.querySelector(".submit-btn").addEventListener("click", function(e) {
-                e.preventDefault();
-                console.log("prevented!");
-                var viewModel = {};
-                var menuItems  = [];
+        e.preventDefault();
+        console.log("prevented!");
+        var viewModel = {};
+        var menuItems  = [];
 
-                var menuBrand = document.querySelector(".menu-brand").value;
-                viewModel["storename"] = menuBrand;
-                var menuAlign = document.querySelector('input[name="storenameAlign"]:checked').value;
-                viewModel["storenameAlign"] = menuAlign;
+        var menuBrand = document.querySelector(".menu-brand").value;
+        viewModel["storename"] = menuBrand;
+        var menuAlign = document.querySelector('input[name="storenameAlign"]:checked').value;
+        viewModel["storenameAlign"] = menuAlign;
 
-                var inputs = document.querySelectorAll(".menu-item");
-                Array.prototype.forEach.call(inputs, function(input) {
-                  var obj = {};
-                  var itemName = input.querySelector(".item-name").value;
-                  if(itemName == ""){
-                    return;
-                  }
-                  var itemDescription = input.querySelector(".item-description").value;
-                  var itemPrice = input.querySelector(".item-price").value;
-                  obj["name"] = itemName;
-                  obj["description"] = itemDescription;
-                  obj["price"] = itemPrice;
-                  menuItems.push(obj);
-                  console.log("works");
-                });
-                if(menuItems.length == 0){
-                  console.log("please write some shit");
-                  var alert = '<div class="alert">Please fill in something</div>';
-                  document.querySelector(".alertContainer").innerHTML += alert;
-                  return true;
-                }
-                viewModel["menuItems"] = menuItems;
-                console.log(JSON.stringify(viewModel));
-                document.querySelector("#hidden").value = JSON.stringify(viewModel);
-                document.querySelector("#hiddenform").submit();
-                return false;
-            });
+        var inputs = document.querySelectorAll(".menu-item");
+        Array.prototype.forEach.call(inputs, function(input) {
+          var obj = {};
+          var itemName = input.querySelector(".item-name").value;
+          if(itemName == ""){
+            return;
+          };
+          var itemDescription = input.querySelector(".item-description").value;
+          var itemPrice = input.querySelector(".item-price").value;
+          if(itemPrice == ""){
+            itemPrice = "0";
+          };
+          obj["name"] = itemName;
+          obj["description"] = itemDescription;
+          obj["price"] = itemPrice;
+          menuItems.push(obj);
+          console.log("works");
+        });
+        if(menuItems.length == 0){
+          console.log("please write some shit");
+          var alert = '<div class="alert">Please fill in something</div>';
+          document.querySelector(".alertContainer").innerHTML += alert;
+          return true;
+        };
+        viewModel["menuItems"] = menuItems;
+        console.log(JSON.stringify(viewModel));
+        document.querySelector("#hidden").value = JSON.stringify(viewModel);
+        document.querySelector("#hiddenform").submit();
+        return false;
+    });
     </script>
   </body>
 </html>

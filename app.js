@@ -4,6 +4,21 @@ var bodyParser = require("body-parser");
 var kvfs = require("kvfs")("database");
 var uuid = require("uuid");
 var mustache = require("mustache");
+var sass = require("node-sass");
+
+sass.render({
+  file: "styles/scss/style.scss"
+}, function(error, result) {
+  if(error){
+    return console.log("error loading sass", error);
+  }
+  console.log("hey this is result: ",result);
+  fs.writeFile("styles/css/style.css", result.css, function(error, buffer) {
+    if(error) {
+      return console.log("could not write style", error);
+    }
+  });
+});
 
 var app = express();
 app.use(bodyParser.urlencoded());
@@ -13,7 +28,7 @@ app.get("/", function(req, res) {
     if(error) {
       return console.log("could not read menu-gen", error);
     }
-    res.send(buffer);
+    res.send(buffer.toString());
   });
 });
 
@@ -44,7 +59,7 @@ app.get("/view/:id", (req, res) => {
       }
       res.send(mustache.render(buffer.toString(), viewModel));
     })
-  })
-})
+  });
+});
 
 app.listen(5000);
