@@ -12,7 +12,6 @@ sass.render({
   if(error){
     return console.log("error loading sass", error);
   }
-  console.log("hey this is result: ",result);
   fs.writeFile("styles/css/style.css", result.css, function(error, buffer) {
     if(error) {
       return console.log("could not write style", error);
