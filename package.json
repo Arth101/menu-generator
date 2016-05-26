@@ -1,0 +1,28 @@
+{
+  "name": "menu-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "kvfs": "^0.1.0",
+    "mustache": "^2.2.1",
+    "node-sass": "^3.7.0",
+    "uuid": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arth101/menu-generator.git"
+  },
+  "author": "Arth101",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Arth101/menu-generator/issues"
+  },
+  "homepage": "https://github.com/Arth101/menu-generator#readme"
+}
