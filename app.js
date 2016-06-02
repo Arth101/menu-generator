@@ -5,6 +5,7 @@ var kvfs = require("kvfs")("database");
 var uuid = require("uuid");
 var mustache = require("mustache");
 var sass = require("node-sass");
+var pdf = require('phantomjs-pdf');
 
 sass.render({
   file: "styles/scss/style.scss"
@@ -38,26 +39,64 @@ app.post("/save", function(req, res) {
   console.log("got data", req.body);
   var viewModel = req.body.viewModel;
   viewModel = JSON.parse(viewModel);
-  var id = uuid.v4();
-  kvfs.set(id, viewModel, function(error) {
+
+  fs.readFile("styles/css/style.css", function(error, styles) {
     if(error) {
-      return console.log("could not save data", error);
+      return console.log("could not read style.css");
     }
-    res.redirect("/view/" + id);
+    console.log("got data2", viewModel);
+    var id = uuid.v4();
+    kvfs.set(id, viewModel, function(error) {
+      if(error) {
+        return console.log("could not save data", error);
+      }
+      viewModel.css = styles.toString();
+      fs.readFile("template.html", function(error, template) {
+        if(error) {
+          return console.log("could not find template.html", error);
+        }
+        var outputHtml = mustache.render(template.toString(), viewModel);
+        pdf.convert({
+          html: outputHtml
+        }, function(result){
+          result.toBuffer(function(pdfContent) {
+            fs.writeFile("outputFiles/" + id + ".pdf", pdfContent, function(error) {
+              if(error) {
+                return console.log("could not write pdf to output", error);
+              };
+            });
+          });
+        });
+        fs.writeFile("outputFiles/" + id + ".html", outputHtml, function(error) {
+          if(error) {
+            console.log("could not write html to output", error);
+            return res.status(500).send("could not write html to output");
+          };
+        });
+      });
+      res.redirect("/view/" + id);
+    });
   });
 });
 
 app.get("/view/:id", (req, res) => {
-  kvfs.get(req.params.id, function(error, viewModel) {
+  fs.readFile("viewTemplate.html", function(error, buffer) {
     if(error) {
-      return console.log("could not get file", error);
+      return console.log("could not find template.html", error);
     }
-    fs.readFile("template.html", function(error, buffer) {
-      if(error) {
-        return console.log("could not find template.html", error);
-      }
-      res.send(mustache.render(buffer.toString(), viewModel));
-    })
+    res.send(mustache.render(buffer.toString(), {id: req.params.id}));
+  });
+});
+
+app.get("/view/:id/menu.html", function(req, res) {
+  fs.readFile("outputFiles/" + req.params.id + ".html", function(error, buffer){
+    res.send(buffer.toString());
+  });
+});
+
+app.get("/view/:id/menu.pdf", function(req, res) {
+  fs.readFile("outputFiles/" + req.params.id + ".pdf", function(error, buffer){
+    res.send(buffer);
   });
 });
 
