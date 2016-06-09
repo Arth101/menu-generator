@@ -1,2 +1,37 @@
-<a href="/view/{{ id }}/menu.html">Download HTML</a>
-<a href="/view/{{ id }}/menu.pdf">Download PDF</a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css'>
+    <!--Import CSS-->
+    <link type="text/css" rel="stylesheet" href="/styles/css/style.css" />
+    <style type="text/css">
+      <link type="text/css" rel="stylesheet" href="styles/css/style.css" />
+    </style>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>menu-gen</title>
+    <meta charset="UTF-8">
+  </head>
+
+  <body>
+    <nav>
+      <a href="/">
+        <span class="logo">brandforyou</span>
+      </a>
+    </nav>
+
+    <div class="container">
+      <h1 class="center">Thanks for using Menu-generator!</h1>
+      <div class="row">
+        <div class="col center">
+          <a class="btn" href="/view/{{ id }}/menu.html">View Menu</a>
+          <a class="btn" href="/view/{{ id }}/menu.zip">Download HTML</a>
+          <a class="btn" href="/view/{{ id }}/menu.pdf">Download PDF</a>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

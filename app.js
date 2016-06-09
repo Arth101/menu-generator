@@ -6,6 +6,7 @@ var uuid = require("uuid");
 var mustache = require("mustache");
 var sass = require("node-sass");
 var pdf = require('phantomjs-pdf');
+var zipper = require("zip-local");
 
 sass.render({
   file: "styles/scss/style.scss"
@@ -72,6 +73,22 @@ app.post("/save", function(req, res) {
             console.log("could not write html to output", error);
             return res.status(500).send("could not write html to output");
           };
+          zipper.zip("outputFiles/" + id + ".html", function(error, zipped) {
+
+            if(!error) {
+                zipped.compress(); // compress before exporting
+
+                // or save the zipped file to disk
+                zipped.save("outputFiles/" + id + ".zip", function(error) {
+                    if(!error) {
+                        console.log("ZIP saved successfully !");
+                    }
+                    if(error){
+                      console.log("ERROR ZIPPING");
+                    }
+                });
+            }
+        });
         });
       });
       res.redirect("/view/" + id);
@@ -79,7 +96,7 @@ app.post("/save", function(req, res) {
   });
 });
 
-app.get("/view/:id", (req, res) => {
+app.get("/view/:id", function(req, res) {
   fs.readFile("viewTemplate.html", function(error, buffer) {
     if(error) {
       return console.log("could not find template.html", error);
@@ -91,6 +108,12 @@ app.get("/view/:id", (req, res) => {
 app.get("/view/:id/menu.html", function(req, res) {
   fs.readFile("outputFiles/" + req.params.id + ".html", function(error, buffer){
     res.send(buffer.toString());
+  });
+});
+
+app.get("/view/:id/menu.zip", function(req, res) {
+  fs.readFile("outputFiles/" + req.params.id + ".zip", function(error, buffer){
+    res.send(buffer);
   });
 });
 

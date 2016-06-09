@@ -9,7 +9,9 @@
     "kvfs": "^0.1.0",
     "mustache": "^2.2.1",
     "node-sass": "^3.7.0",
-    "uuid": "^2.0.2"
+    "phantomjs-pdf": "^0.1.2",
+    "uuid": "^2.0.2",
+    "zip-local": "^0.3.4"
   },
   "devDependencies": {},
   "scripts": {
