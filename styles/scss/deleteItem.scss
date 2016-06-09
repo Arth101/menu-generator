@@ -1,0 +1,15 @@
+.delete {
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  color: lighten($font-color, 50%);
+  font-size: 1.5em;
+}
+
+.delete:hover {
+  color: $font-color;
+}

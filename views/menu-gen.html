@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css'>
+    <!--Import CSS-->
+    <link type="text/css" rel="stylesheet" href="styles/css/style.css" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>menu-gen</title>
+    <meta charset="UTF-8">
+  </head>
+
+  <body>
+    <main>
+    <nav>
+      <a href="/"><span class="logo">brandforyou</span></a>
+    </nav>
+    <div class="container">
+      <form action="next.html" method="GET">
+        <div class="row">
+          <div class="col"><h3>General:</h3></div>
+          <div class="col">
+            <input class="menu-brand" type="text" placeholder="Storename" name="storename" />
+          </div>
+          <div class="col margin-bottom">
+            <input class="menu-align" type="radio" name="storenameAlign" value="left" checked> Left align <input type="radio" name="storenameAlign" value="center"> Center
+          </div>
+          <div class="col"><h3>Menu:</h3></div>
+          <div class="menu-items">
+          <div class="menu-item row new js-fade fade-in">
+            <div class="container-name">
+                <input class="item-name" id="newInput" type="text" placeholder="Item name" name="name" />
+                <input class="item-description" type="text" placeholder="Item description" name="description" />
+            </div>
+            <div class="container-price">
+              <input class="item-price" type="number" min="0" step="0.01" placeholder="item price" name="price" />
+              <input class="item-currency" disabled type="text" min="0" step="0.01" placeholder="DKK" name="currenecy" />
+            </div>
+            <span class="delete" onClick="deleteItem(this)">&#10006</span>
+          </div>
+        </div>
+          <div>
+
+            <div class="col">
+              <a class="btn" onClick="addItem()">add new item</a>
+              <button class="submit-btn" type="submit" value="submit">submit</button>
+            </div>
+
+      </div>
+    </form>
+    <form class="hidden" id="hiddenform" action="save" method="POST">
+      <input id="hidden" name="viewModel" value="plz" />
+    </form>
+    </div>
+    <div class="alertContainer"></div>
+  </main>
+  <footer>
+    © 2016 Anders Enghøj, All rights reserved.
+  </footer>
+    <script src="js/menu-gen.js"></script>
+  </body>
+</html>

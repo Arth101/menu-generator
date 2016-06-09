@@ -1,0 +1,45 @@
+.menu-brand {
+  font-size: 1.7em;
+}
+
+.menu-items {
+  width: 100%;
+}
+
+.menu-item {
+  margin-bottom: 25px;
+
+  .container-name {
+    width: 70%;
+    padding-right: 20px;
+    box-sizing: border-box;
+
+    @media (max-width: $small) {
+      width: 100%;
+      padding-right: 0;
+    }
+  }
+  .container-price {
+    width: 20%;
+
+    @media (max-width: $small) {
+      width: 100%;
+    }
+  }
+}
+
+.item-name, .item-price {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.menu-description {
+  font-size: 0.8em;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.menu-price {
+  text-align: right;
+}

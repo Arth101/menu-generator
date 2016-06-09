@@ -1,0 +1,40 @@
+form {
+  color: $font-color;
+}
+
+form label {
+  display: block;
+  font-size: 1em;
+}
+
+form input {
+  padding: 5px;
+  background:rgba(0,0,0,0);
+  border:none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form input[type="radio"] {
+  width: inherit;
+}
+
+input[type="text"],
+input[type="number"] {
+  display: block;
+  margin: 0;
+  margin-bottom: .5em;
+  width: 100%;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  padding: 10px;
+  border: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border: solid 2px #969696;
+}

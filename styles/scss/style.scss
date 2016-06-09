@@ -1,17 +1,16 @@
-$primary: #255556;
-$primary: rgba(37, 85, 86, 0.85);
-$primary-dark: darken($primary, 5%);
-$font-color: rgba(0,0,0,0.71);
-
-@import 'grid';
+@import "variables";
 @import "reset";
+@import 'grid';
 @import "nav";
+@import "menu";
 @import "button";
 @import "profile";
 @import 'generated';
 @import "fadeIn";
 @import "footer";
 @import "alert";
+@import "input";
+@import "deleteItem";
 
 body {
   margin: 0;
@@ -43,74 +42,10 @@ body {
   margin-bottom: 10px;
 }
 
-form {
-  color: $font-color;
-}
-
-form label {
-  display: block;
-  font-size: 1em;
-}
-
-form input {
-  padding: 5px;
-  background:rgba(0,0,0,0);
-  border:none;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-form input[type="radio"] {
-  width: inherit;
-}
-
-.menu-brand {
-  font-size: 1.7em;
-}
-
-.menu-items {
-  width: 100%;
-}
-
-.menu-item {
-  margin-bottom: 10px;
-
-  .container-name {
-    width: 70%;
-    padding-right: 20px;
-    box-sizing: border-box;
-  }
-  .container-price {
-    width: 30%;
-  }
-}
-
-.item-name, .item-price {
-  font-size: 1em;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-.menu-description {
-  font-size: 0.8em;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.menu-price {
-  text-align: right;
-}
-
 form button {
   margin: 10px 0;
 }
 
 .hidden {
   display: none !important;
-}
-
-@media (min-width: 799px) {
-  .facet_sidebar {
-    width: 95%;
-  }
 }

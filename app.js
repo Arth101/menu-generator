@@ -8,6 +8,7 @@ var sass = require("node-sass");
 var pdf = require('phantomjs-pdf');
 var zipper = require("zip-local");
 
+// render scss to css
 sass.render({
   file: "styles/scss/style.scss"
 }, function(error, result) {
@@ -21,11 +22,18 @@ sass.render({
   });
 });
 
+// run server
 var app = express();
-app.use(bodyParser.urlencoded());
+app.listen(5000);
 
+// allow access to required folders
+app.use(bodyParser.urlencoded());
+app.use("/styles", express.static("styles"));
+app.use("/js", express.static("js"));
+
+// set index
 app.get("/", function(req, res) {
-  fs.readFile("menu-gen.html", function(error, buffer) {
+  fs.readFile("views/menu-gen.html", function(error, buffer) {
     if(error) {
       return console.log("could not read menu-gen", error);
     }
@@ -33,9 +41,7 @@ app.get("/", function(req, res) {
   });
 });
 
-app.use("/styles", express.static("styles"));
-app.use("/js", express.static("js"));
-
+// POST request from menu-gen.html
 app.post("/save", function(req, res) {
   console.log("got data", req.body);
   var viewModel = req.body.viewModel;
@@ -45,59 +51,30 @@ app.post("/save", function(req, res) {
     if(error) {
       return console.log("could not read style.css");
     }
-    console.log("got data2", viewModel);
+    console.log("Read Data from style.css");
     var id = uuid.v4();
     kvfs.set(id, viewModel, function(error) {
       if(error) {
         return console.log("could not save data", error);
       }
       viewModel.css = styles.toString();
-      fs.readFile("template.html", function(error, template) {
+      fs.readFile("views/template.html", function(error, template) {
         if(error) {
           return console.log("could not find template.html", error);
         }
         var outputHtml = mustache.render(template.toString(), viewModel);
-        pdf.convert({
-          html: outputHtml
-        }, function(result){
-          result.toBuffer(function(pdfContent) {
-            fs.writeFile("outputFiles/" + id + ".pdf", pdfContent, function(error) {
-              if(error) {
-                return console.log("could not write pdf to output", error);
-              };
-            });
-          });
-        });
-        fs.writeFile("outputFiles/" + id + ".html", outputHtml, function(error) {
-          if(error) {
-            console.log("could not write html to output", error);
-            return res.status(500).send("could not write html to output");
-          };
-          zipper.zip("outputFiles/" + id + ".html", function(error, zipped) {
-
-            if(!error) {
-                zipped.compress(); // compress before exporting
-
-                // or save the zipped file to disk
-                zipped.save("outputFiles/" + id + ".zip", function(error) {
-                    if(!error) {
-                        console.log("ZIP saved successfully !");
-                    }
-                    if(error){
-                      console.log("ERROR ZIPPING");
-                    }
-                });
-            }
-        });
-        });
+        convertPdf(outputHtml, id);
+        saveHtml(outputHtml, id);
+        zipFile(id);
       });
       res.redirect("/view/" + id);
     });
   });
 });
 
+// additional routes
 app.get("/view/:id", function(req, res) {
-  fs.readFile("viewTemplate.html", function(error, buffer) {
+  fs.readFile("views/downloadsView.html", function(error, buffer) {
     if(error) {
       return console.log("could not find template.html", error);
     }
@@ -123,4 +100,44 @@ app.get("/view/:id/menu.pdf", function(req, res) {
   });
 });
 
-app.listen(5000);
+// save menu formats functions
+function convertPdf(outputHtml, id){
+  pdf.convert({
+    html: outputHtml
+  }, function(result){
+    result.toBuffer(function(pdfContent) {
+      fs.writeFile("outputFiles/" + id + ".pdf", pdfContent, function(error) {
+        if(error) {
+          return console.log("could not write pdf to output", error);
+        };
+        console.log("PDF saved successfully!");
+      });
+    });
+  });
+}
+
+function saveHtml(outputHtml, id){
+  fs.writeFile("outputFiles/" + id + ".html", outputHtml, function(error) {
+    if(error) {
+      console.log("could not write html to output", error);
+      return res.status(500).send("could not write html to output");
+    };
+    console.log("HTML saved successfully!");
+  });
+}
+
+function zipFile(id){
+  zipper.zip("outputFiles/" + id + ".html", function(error, zipped) {
+    if(!error) {
+        zipped.compress();
+        zipped.save("outputFiles/" + id + ".zip", function(error) {
+            if(!error) {
+                console.log("ZIP saved successfully!");
+            };
+            if(error){
+              console.log("ERROR ZIPPING");
+            };
+        });
+    };
+  });
+};

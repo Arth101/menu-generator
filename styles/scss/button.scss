@@ -16,6 +16,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"],
 a.btn,
+.btn,
 button {
     display: inline-block;
     text-decoration: none;
@@ -37,6 +38,18 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover,
 a.btn:hover,
-button:hover {
+button:hover,
+.btn:hover {
   background-color: #F0F1F2;
+}
+
+.warning {
+  background-color: $warning;
+  color: white;
+  padding: 10px;
+  border: solid 1px darken($warning, 20%);
+}
+
+.warning:hover {
+  background-color: darken($warning, 10%);
 }
