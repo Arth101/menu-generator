@@ -22,7 +22,7 @@
       </a>
     </nav>
 
-    <div class="container">
+    <div class="container paper {{ theme }}">
       <div class="row">
         <div class="col">
           <h2 class="menu-brand {{ storenameAlign }}">{{ storename }}</h2>
@@ -36,7 +36,7 @@
               </span>
               <span class="item-price">
                 {{^price}} Free {{/price}}
-                {{#price}}{{price}} DKK {{/price}}
+                {{#price}}{{price}} {{currency}} {{/price}}
               </span>
               <p class="item-description">
                 {{description}}

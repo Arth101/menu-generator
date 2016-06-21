@@ -61,7 +61,6 @@ button:hover,
 .btn.primary {
   background-color: $secondary;
   color: white;
-  padding: 10px;
   border: solid 1px darken($secondary, 20%);
 }
 
@@ -72,7 +71,6 @@ button:hover,
 .btn.warning {
   background-color: $warning;
   color: white;
-  padding: 10px;
   border: solid 1px darken($warning, 20%);
 }
 

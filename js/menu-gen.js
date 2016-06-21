@@ -40,6 +40,13 @@ document.querySelector("#newInput").addEventListener("focus", createNewNodes);
     viewModel["storename"] = menuBrand;
     var menuAlign = document.querySelector('input[name="storenameAlign"]:checked').value;
     viewModel["storenameAlign"] = menuAlign;
+    var menuCurrency = document.querySelector('.menu-currency');
+    menuCurrency = menuCurrency.options[menuCurrency.selectedIndex].value;
+    viewModel["currency"] = menuCurrency;
+
+    var menuTheme = document.querySelector('.menu-theme');
+    menuTheme = menuTheme.options[menuTheme.selectedIndex].value;
+    viewModel["theme"] = menuTheme;
 
     var inputs = document.querySelectorAll(".menu-item");
     Array.prototype.forEach.call(inputs, function(input) {
@@ -81,3 +88,12 @@ function deleteItem(e){
     var cln = '<div class="menu-item row new js-fade fade-in">\<div class="container-name"><input class="item-name" id="newInput" type="text" placeholder="Item name" name="horse11"><input class="item-description" type="text" placeholder="Item description" name="horse12"></div><div class="container-price"><input class="item-price" type="number" min="0" step="0.01" placeholder="item price" name="horse13"></div><span class="delete" onclick="deleteItem(this)">✖</span></div>';
     document.querySelector(".menu-items").insertAdjacentHTML( 'beforeend', cln );
   }
+
+  function currencyChange() {
+    var selectValue = document.querySelector('.menu-currency').value;
+    var divs = document.querySelectorAll('.item-currency'), i;
+    // Change currency in all item-currency divs
+    for (i = 0; i < divs.length; ++i) {
+      divs[i].placeholder = selectValue;
+    }
+}

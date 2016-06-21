@@ -1,0 +1,27 @@
+.paper {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  padding: 20px;
+  min-height: 80vh;
+}
+
+.dark {
+  background-color: #1d1f21;
+  color: #c5c8c6;
+
+  .menu-item::before {
+    border-bottom: 2px dotted #c5c8c6;
+  }
+
+  h2 {
+    color: #81a2be;
+  }
+}
+
+.lightblue {
+  background-color: #EEF2FF;
+  color: $font-color;
+
+  h2 {
+    color: $primary;
+  }
+}

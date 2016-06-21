@@ -11,6 +11,7 @@
 @import "alert";
 @import "input";
 @import "deleteItem";
+@import "themes";
 
 body {
   margin: 0;
@@ -38,8 +39,12 @@ body {
   text-align: right;
 }
 
+.uppercase {
+  text-transform: uppercase !important;
+}
+
 .margin-bottom {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 form button {

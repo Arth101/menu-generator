@@ -38,3 +38,8 @@ input[type="number"]:focus {
   outline: none;
   border: solid 2px #969696;
 }
+
+select {
+  @extend input[type="text"];
+  width: auto;
+}

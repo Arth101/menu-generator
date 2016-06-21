@@ -24,8 +24,25 @@
           <div class="col">
             <input class="menu-brand" type="text" placeholder="Storename" name="storename" />
           </div>
+          <strong>Should the menu be</strong>
           <div class="col margin-bottom">
-            <input class="menu-align" type="radio" name="storenameAlign" value="left" checked> Left align <input type="radio" name="storenameAlign" value="center"> Center
+            <input class="menu-align" type="radio" name="storenameAlign" value="left" checked> Left aligned <input type="radio" name="storenameAlign" value="center"> Centered
+          </div>
+          <strong>Select currency</strong>
+          <div class="col margin-bottom">
+            <select class="menu-currency" type="select" name="currency" onchange="currencyChange();">
+              <option value="dkk">Danish Kroner</option>
+              <option value="usd">US Dollars</option>
+              <option value="gbp">British Pounds</option>
+            </select>
+          </div>
+          <strong>Select theme</strong>
+          <div class="col margin-bottom">
+            <select class="menu-theme" type="select" name="theme">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="lightblue">Lightblue</option>
+            </select>
           </div>
           <div class="col"><h3>Menu:</h3></div>
           <div class="menu-items">
@@ -36,7 +53,7 @@
             </div>
             <div class="container-price">
               <input class="item-price" type="number" min="0" step="0.01" placeholder="item price" name="price" />
-              <input class="item-currency" disabled type="text" min="0" step="0.01" placeholder="DKK" name="currenecy" />
+              <input class="item-currency uppercase" disabled type="text" min="0" step="0.01" placeholder="DKK" name="currenecy" />
             </div>
             <span class="delete" onClick="deleteItem(this)">&#10006</span>
           </div>
@@ -45,7 +62,7 @@
 
             <div class="col">
               <a class="btn" onClick="addItem()">add new item</a>
-              <button class="submit-btn" type="submit" value="submit">submit</button>
+              <button class="submit-btn btn primary" type="submit" value="submit">submit</button>
             </div>
 
       </div>

@@ -148,6 +148,9 @@ nav {
 .menu-price {
   text-align: right; }
 
+strong {
+  margin-bottom: 5px; }
+
 /* Make `a` like a button */
 [role="button"] {
   color: inherit;
@@ -208,7 +211,6 @@ button:hover,
 .btn.primary, .primary.btn-large {
   background-color: #337ab7;
   color: white;
-  padding: 10px;
   border: solid 1px #1d4567; }
 
 .btn.primary:hover, .primary.btn-large:hover {
@@ -217,7 +219,6 @@ button:hover,
 .btn.warning, .warning.btn-large {
   background-color: #d9534f;
   color: white;
-  padding: 10px;
   border: solid 1px #a02622; }
 
 .btn.warning:hover, .warning.btn-large:hover {
@@ -304,7 +305,8 @@ button:hover,
   .generated .item-price {
     order: 3;
     -ms-order: 3;
-    padding-top: 0.5em; }
+    padding-top: 0.5em;
+    text-transform: uppercase; }
 
 @-webkit-keyframes fadeIn {
   to {
@@ -350,7 +352,7 @@ form input {
 form input[type="radio"] {
   width: inherit; }
 
-input[type="text"],
+input[type="text"], select,
 input[type="number"] {
   display: block;
   margin: 0;
@@ -363,10 +365,13 @@ input[type="number"] {
   border: solid 2px #c9c9c9;
   transition: border 0.3s; }
 
-input[type="text"]:focus,
+input[type="text"]:focus, select:focus,
 input[type="number"]:focus {
   outline: none;
   border: solid 2px #969696; }
+
+select {
+  width: auto; }
 
 .delete {
   height: 42px;
@@ -381,6 +386,25 @@ input[type="number"]:focus {
 
 .delete:hover {
   color: rgba(0, 0, 0, 0.71); }
+
+.paper {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+  min-height: 80vh; }
+
+.dark {
+  background-color: #1d1f21;
+  color: #c5c8c6; }
+  .dark .menu-item::before {
+    border-bottom: 2px dotted #c5c8c6; }
+  .dark h2 {
+    color: #81a2be; }
+
+.lightblue {
+  background-color: #EEF2FF;
+  color: rgba(0, 0, 0, 0.71); }
+  .lightblue h2 {
+    color: rgba(37, 85, 86, 0.85); }
 
 body {
   margin: 0;
@@ -403,8 +427,11 @@ main {
 .right {
   text-align: right; }
 
+.uppercase {
+  text-transform: uppercase !important; }
+
 .margin-bottom {
-  margin-bottom: 10px; }
+  margin-bottom: 15px; }
 
 form button {
   margin: 10px 0; }
