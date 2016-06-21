@@ -45,4 +45,8 @@
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
   max-width: 100%;
+
+  @media (max-width: $small) {
+    flex-wrap: wrap;
+  }
 }

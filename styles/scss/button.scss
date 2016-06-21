@@ -24,6 +24,7 @@ button {
     border: 1px solid rgb(0, 0, 0);
     border: 1px solid $primary;
     padding: 10px 20px;
+    margin-bottom: 10px;
     color: $primary;
     cursor: pointer;
     -webkit-transition: All 0.2s ease;
@@ -43,13 +44,38 @@ button:hover,
   background-color: #F0F1F2;
 }
 
-.warning {
+.download {
+  display: flex;
+  a.btn {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.btn-large {
+  @extend .btn;
+  font-size: 1.2em;
+}
+
+.btn.primary {
+  background-color: $secondary;
+  color: white;
+  padding: 10px;
+  border: solid 1px darken($secondary, 20%);
+}
+
+.btn.primary:hover {
+  background-color: darken($secondary, 10%);
+}
+
+.btn.warning {
   background-color: $warning;
   color: white;
   padding: 10px;
   border: solid 1px darken($warning, 20%);
 }
 
-.warning:hover {
+.btn.warning:hover {
   background-color: darken($warning, 10%);
 }

@@ -97,6 +97,9 @@ input[type=number]::-webkit-outer-spin-button {
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
   max-width: 100%; }
+  @media (max-width: 850px) {
+    .col {
+      flex-wrap: wrap; } }
 
 nav {
   background: rgba(37, 85, 86, 0.85);
@@ -162,7 +165,9 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"],
 a.btn,
+a.btn-large,
 .btn,
+.btn-large,
 button {
   display: inline-block;
   text-decoration: none;
@@ -170,6 +175,7 @@ button {
   border: 1px solid black;
   border: 1px solid rgba(37, 85, 86, 0.85);
   padding: 10px 20px;
+  margin-bottom: 10px;
   color: rgba(37, 85, 86, 0.85);
   cursor: pointer;
   -webkit-transition: All 0.2s ease;
@@ -183,17 +189,38 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover,
 a.btn:hover,
+a.btn-large:hover,
 button:hover,
-.btn:hover {
+.btn:hover,
+.btn-large:hover {
   background-color: #F0F1F2; }
 
-.warning {
+.download {
+  display: flex; }
+  .download a.btn, .download a.btn-large {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px; }
+
+.btn-large {
+  font-size: 1.2em; }
+
+.btn.primary, .primary.btn-large {
+  background-color: #337ab7;
+  color: white;
+  padding: 10px;
+  border: solid 1px #1d4567; }
+
+.btn.primary:hover, .primary.btn-large:hover {
+  background-color: #285f8f; }
+
+.btn.warning, .warning.btn-large {
   background-color: #d9534f;
   color: white;
   padding: 10px;
   border: solid 1px #a02622; }
 
-.warning:hover {
+.btn.warning:hover, .warning.btn-large:hover {
   background-color: #c9302c; }
 
 .profile-body {

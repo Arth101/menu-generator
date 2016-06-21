@@ -66,6 +66,7 @@ app.post("/save", function(req, res) {
         convertPdf(outputHtml, id);
         saveHtml(outputHtml, id);
         zipFile(id);
+        saveJson(viewModel, id);
       });
       res.redirect("/view/" + id);
     });
@@ -140,4 +141,29 @@ function zipFile(id){
         });
     };
   });
+};
+
+function saveJson(viewModel, id){
+  viewModel = JSON.stringify(viewModel, null, 2);
+  fs.writeFile("outputFiles/" + id + ".json", viewModel, function(error) {
+    if(error) {
+      console.log("could not write JSON to output", error);
+      return res.status(500).send("could not write html to output");
+    };
+    console.log("JSON saved successfully!");
+    zipper.zip("outputFiles/" + id + ".json", function(error, zipped) {
+      if(!error) {
+          zipped.compress();
+          zipped.save("outputFiles/json-" + id + ".zip", function(error) {
+              if(!error) {
+                  console.log("JSON-ZIP saved successfully!");
+              };
+              if(error){
+                console.log("ERROR ZIPPING JSON");
+              };
+          });
+      };
+    });
+  });
+
 };
