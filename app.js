@@ -54,6 +54,7 @@ app.post("/save", function(req, res) {
     console.log("Read Data from style.css");
     var id = uuid.v4();
     kvfs.set(id, viewModel, function(error) {
+      console.log("ID is: ",id);
       if(error) {
         return console.log("could not save data", error);
       }
